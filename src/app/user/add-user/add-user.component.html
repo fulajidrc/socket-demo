@@ -1,0 +1,32 @@
+
+<form class="example-form" #noteForm="ngForm"  [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name">
+        <mat-error *ngIf="(form.name.touched || submitted) && form.name.errors?.required">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="(form.email.touched || submitted) && form.email.errors?.required">
+            Email is <strong>required</strong>
+        </mat-error>
+
+        <mat-error *ngIf="(form.email.touched || submitted) && form.email.errors?.email">
+            Please enter valid Email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName="password">
+        <mat-error *ngIf="(form.password.touched || submitted) && form.password.errors?.required">
+            Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="accent"  type="submit">{{dButtonText}}</button>
+ </form>

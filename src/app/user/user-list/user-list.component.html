@@ -1,0 +1,8 @@
+<mat-list>
+    <ng-container *ngFor="let user of users$ | async">
+        <mat-list-item style="margin-bottom: 10px; margin-top: 10px;">
+            <app-user-item [user]="user"></app-user-item>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </ng-container>
+</mat-list>

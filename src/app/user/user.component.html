@@ -1,0 +1,24 @@
+<div style="padding: 10px;">
+    <div fxLayout="column" fxLayout.md="row"   fxFill fxLayoutGap="10" fxLayoutAlign="space-between start" >
+        <div fxFlexOrder="1" fxFlex="20" fxLayout="column" fxLayoutAlign="space-between center" style="width: 100%">
+            <mat-card fxFill>
+                <mat-card-header>	
+                    Add User
+                </mat-card-header>
+                <mat-card-content>
+                    <app-add-user></app-add-user>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxFlexOrder="-1" fxFlex="grow"  fxLayoutAlign="space-between center" style="width: 100%">
+            <mat-card fxFill>
+                <mat-card-header>	
+                    User List
+                </mat-card-header>
+                <mat-card-content>
+                    <app-user-list></app-user-list>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

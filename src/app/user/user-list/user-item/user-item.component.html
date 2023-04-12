@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" >
+    <div>
+        <div matListItemTitle>{{user.name}}</div>
+        <div matListItemLine>{{user.email}}</div>
+    </div>
+    <div>
+        <button mat-raised-button color="accent" (click)="editUser(user)">Edit</button> 
+        &nbsp;
+        <button mat-raised-button color="warn" (click)="deleteUser(user)">Delete</button>
+    </div>
+</div>
