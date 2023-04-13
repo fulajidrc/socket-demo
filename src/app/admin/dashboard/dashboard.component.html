@@ -1,0 +1,10 @@
+<p>dashboard works!</p>
+
+
+<div *ngIf="user$ | async as user">
+    <ul>
+        <li>Name: {{user.name}}</li>
+        <li>Email:{{user.email}}</li>
+    </ul>
+    <button (click)="logout()">Logout</button>
+</div>

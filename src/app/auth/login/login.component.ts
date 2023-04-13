@@ -34,11 +34,7 @@ export class LoginComponent {
   onSubmit() {
     this.submitted = true;
     if (this.registerForm.valid) {
-      // console.log(this,this.registerForm.value);
       this.socketService.loginUser(this.registerForm.value);
-      // alert('Form Submitted succesfully!!!\n Check the values in browser console.');
-      // console.table(this.registerForm.value);
-      //this.store.dispatch(loginAction(this.registerForm.value))
     }
   }
 }

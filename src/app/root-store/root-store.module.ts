@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import {reducer as authReducer}  from '../auth/store/auth.reducer'
 import { Action, ActionReducer, ActionReducerMap, MetaReducer, StoreModule } from '@ngrx/store';
+import { AuthModule } from '../auth/auth.module';
 const INIT_ACTION = "@ngrx/store/init";
 const UPDATE_ACTION = "@ngrx/store/update-reducers";
 
@@ -34,6 +35,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
   declarations: [],
   imports: [
     CommonModule,
+    AuthModule,
     StoreModule.forRoot(
       reducers,
       { metaReducers }

@@ -38,12 +38,11 @@ import { RootStoreModule } from './root-store/root-store.module';
     FormsModule,
     ReactiveFormsModule,
     RootStoreModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    //StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    StoreModule.forFeature(fromUser.userFeatureKey, fromUser.reducer),
-    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
-    EffectsModule.forFeature([UserEffects, AuthEffects])
+    // StoreModule.forFeature(fromUser.userFeatureKey, fromUser.reducer),
+    // StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
+    EffectsModule.forRoot([UserEffects, AuthEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
