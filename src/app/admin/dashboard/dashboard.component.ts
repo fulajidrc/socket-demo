@@ -16,10 +16,14 @@ export class DashboardComponent {
   ){}
     
   ngOnInit(){
-    this.socketService.verifyCookie();
+    this.verifyCookie();
   }
 
   logout(){
     this.socketService.logoutUser();
+  }
+
+  verifyCookie(){
+    this.socketService.verifyCookie();
   }
 }

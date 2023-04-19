@@ -25,15 +25,14 @@ export class SocketService {
   ) { 
     this.socket = io('http://localhost:3000',{
       transports: ['websocket'],
-      withCredentials: true
     });
 
     this.socket.on('message', response => this.getResponse(response));
 
     this.socket.on('cookie', (cookieValue: string) => {
-      document.cookie = cookieValue
+      console.log(cookieValue);
+      this.cookieService.set('myToken', cookieValue);
       this.socket.emit('cookieReceived');
-      console.log('Cookie set successfully!');
     });
     
   }
@@ -59,20 +58,22 @@ export class SocketService {
         break;
       
       case 'SUCCESS_LOGIN':
+        setTimeout(() => {
           const user:User = {...response.data.user, accessToken: response.data.accessToken}
           this.store.dispatch(userLoginLogout(user, true))
-          this.router.navigate(['/dashboard'])
-
+          location.href = "dashboard";
+        }, 2000)
+          
+        break;
+      
+        case 'LOGOUT':
+          this.logoutUser();
         break;
         
       default:
         break;
     }
   }
-
-
-  // EMITTER function
-  
   //send message
   sendMessage(msg: string) {
     // console.log('send test message');
@@ -110,8 +111,9 @@ export class SocketService {
             name: '',
             email: '',
           };
+          document.cookie = `myToken=;`
           this.store.dispatch(userLoginLogout(user, false))
-          this.router.navigate(['/login'])
+          location.href = "login";
   }
 
   verifyCookie(){

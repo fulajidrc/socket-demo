@@ -19,6 +19,7 @@ import { UserEffects } from './user/store/user.effects';
 import { UserItemComponent } from './user/user-list/user-item/user-item.component';
 import { AuthEffects } from './auth/store/auth.effects';
 import { RootStoreModule } from './root-store/root-store.module';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { RootStoreModule } from './root-store/root-store.module';
     // StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
     EffectsModule.forRoot([UserEffects, AuthEffects])
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
